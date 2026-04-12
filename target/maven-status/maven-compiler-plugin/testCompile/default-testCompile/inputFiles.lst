@@ -1,0 +1,11 @@
+/home/della/uni/DAT110/innleveringer/dat110-project3-dht-group5/src/test/java/no/hvl/dat110/unit/tests/SetUp.java
+/home/della/uni/DAT110/innleveringer/dat110-project3-dht-group5/src/test/java/no/hvl/dat110/unit/tests/TestCheckInterval.java
+/home/della/uni/DAT110/innleveringer/dat110-project3-dht-group5/src/test/java/no/hvl/dat110/unit/tests/TestFilePeers.java
+/home/della/uni/DAT110/innleveringer/dat110-project3-dht-group5/src/test/java/no/hvl/dat110/unit/tests/TestFileReplicas.java
+/home/della/uni/DAT110/innleveringer/dat110-project3-dht-group5/src/test/java/no/hvl/dat110/unit/tests/TestFindSuccessor.java
+/home/della/uni/DAT110/innleveringer/dat110-project3-dht-group5/src/test/java/no/hvl/dat110/unit/tests/TestFingerTable.java
+/home/della/uni/DAT110/innleveringer/dat110-project3-dht-group5/src/test/java/no/hvl/dat110/unit/tests/TestHashFunction.java
+/home/della/uni/DAT110/innleveringer/dat110-project3-dht-group5/src/test/java/no/hvl/dat110/unit/tests/TestKeys.java
+/home/della/uni/DAT110/innleveringer/dat110-project3-dht-group5/src/test/java/no/hvl/dat110/unit/tests/TestMutex.java
+/home/della/uni/DAT110/innleveringer/dat110-project3-dht-group5/src/test/java/no/hvl/dat110/unit/tests/TestRemote.java
+/home/della/uni/DAT110/innleveringer/dat110-project3-dht-group5/src/test/java/no/hvl/dat110/unit/tests/TestRing.java
