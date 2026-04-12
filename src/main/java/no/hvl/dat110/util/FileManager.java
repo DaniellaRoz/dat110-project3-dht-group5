@@ -71,7 +71,7 @@ public class FileManager {
     	
     	// randomly appoint the primary server to this file replicas
     	Random rnd = new Random(); 							
-    	int index = rnd.nextInt(Util.numReplicas-1);
+    	int index = rnd.nextInt(numReplicas);
     	
     	int counter = 0;
 
@@ -83,7 +83,7 @@ public class FileManager {
 
 			succ.addKey(replicafiles[i]);
 
-			succ.saveFileContent(filename, hash, bytesOfFile, i == index);
+			succ.saveFileContent(filename, replicafiles[i], bytesOfFile, i == index);
 
 			counter++;
 		}
@@ -101,18 +101,15 @@ public class FileManager {
 		this.filename = filename;
 		activeNodesforFile = new HashSet<Message>(); 
 
-		// Task: Given a filename, find all the peers that hold a copy of this file
-		
-		// generate the N replicas from the filename by calling createReplicaFiles()
-		
-		// iterate over the replicas of the file
-		
-		// for each replica, do findSuccessor(replica) that returns successor s.
-		
-		// get the metadata (Message) of the replica from the successor (i.e., active peer) of the file
-		
-		// save the metadata in the set activeNodesforFile.
-		
+		createReplicaFiles();
+
+		for (BigInteger replica : replicafiles) {
+		    NodeInterface successor = chordnode.findSuccessor(replica);
+		    Message metadata = successor.getFilesMetadata(replica);
+		    if (metadata != null) {
+		        activeNodesforFile.add(metadata);
+		    }
+		}
 		return activeNodesforFile;
 	}
 	
@@ -122,15 +119,11 @@ public class FileManager {
 	 */
 	public NodeInterface findPrimaryOfItem() {
 
-		// Task: Given all the active peers of a file (activeNodesforFile()), find which is holding the primary copy
-		
-		// iterate over the activeNodesforFile
-		
-		// for each active peer (saved as Message)
-		
-		// use the primaryServer boolean variable contained in the Message class to check if it is the primary or not
-		
-		// return the primary when found (i.e., use Util.getProcessStub to get the stub and return it)
+		for (Message m : activeNodesforFile) {
+	        if (m.isPrimaryServer()) {
+	            return Util.getProcessStub(m.getNodeName(), m.getPort());
+	        }
+	    }
 		
 		return null; 
 	}
